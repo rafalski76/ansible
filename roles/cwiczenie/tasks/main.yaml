@@ -1,0 +1,11 @@
+---
+- name: Create directory 
+  file:
+    path: ~/dane
+    state: directory
+    
+- name: Create file
+  file: 
+    path: ~/dane/tajny.txt
+    state: touch
+

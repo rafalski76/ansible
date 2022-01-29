@@ -1,0 +1,7 @@
+---
+- hosts: all
+  become: no
+  become_user: root
+
+  roles:
+    - role: cwiczenie
