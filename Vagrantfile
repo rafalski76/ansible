@@ -15,7 +15,7 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.define "runner", primary: true do |host|
-    host.vm.hostname = "ansibler"
+    host.vm.hostname = "runner"
     host.vm.network "private_network", ip: "192.168.56.10"
     host.vm.provision "shell", path: "./.vagrant-provision/install_ansible.sh"
   end
