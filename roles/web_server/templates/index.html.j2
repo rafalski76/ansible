@@ -7,5 +7,16 @@
   <p>If you can see this, Ansible successfully installed nginx.</p>
 
   <p>Running on {{ inventory_hostname }}</p>
+  
+  {% for address in ansible_all_ipv4_addresses %}
+  <p> {{ address }} </p>
+  {% endfor %}
+  
+  {% if inventory_hostname == "target1" %}
+  <p>Pozdrawiam Cie target1</p>
+  {% else %}
+  <p>Nie pozdrawiam, bo nie jestes target1</p>
+  {% endif %}
+  
   </body>
 </html>

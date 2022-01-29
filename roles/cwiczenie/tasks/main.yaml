@@ -9,3 +9,18 @@
     path: ~/dane/tajny.txt
     state: touch
 
+- name: Create files in loop
+  file: 
+    path: ~/dane/"{{ item }}"
+    state: touch
+  with_items:
+    - poufne
+    - publiczne
+    
+- name: Get files name
+  command: ls -l ~/dane/
+  register: zmienna_rej
+
+- name: Print files name from registered variable
+  debug:
+    msg: "{{ zmienna_rej.stdout_lines }}"
