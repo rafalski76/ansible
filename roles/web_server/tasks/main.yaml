@@ -4,7 +4,7 @@
     update_cache: yes
     cache_valid_time: 3600
   tags:
-    - bootstrap
+    - update
 
 - name: Install {{ mysql_package_name }} package
   apt:
