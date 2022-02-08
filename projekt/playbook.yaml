@@ -1,5 +1,6 @@
 ---
 - import_playbook: playbook-all.yaml
-- import_playbook: playbook-mealie.yaml
 - import_playbook: playbook-postgres.yaml
+- import_playbook: playbook-mealie.yaml
+
     
