@@ -1,0 +1,18 @@
+---
+- hosts: host1
+  become: yes
+  become_user: root 
+  gather_facts: no
+  
+  tasks:
+    - name: Copy docker-compose file
+      copy:
+        src: docker-compose-mealie.yaml
+        dest: /vagrant/projekt/docker-compose-mealie.yaml
+
+    - name: Install Mealie
+      docker_compose:
+        project_src: /vagrant/projekt/
+        files:
+          - docker-compose-mealie.yaml
+        state: present

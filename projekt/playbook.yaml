@@ -1,10 +1,5 @@
 ---
-- hosts: all
-  become: yes
-  become_user: root
-
-  roles:
-    - common
-    - geerlingguy.git
-    - geerlingguy.docker
+- import_playbook: playbook-all.yaml
+- import_playbook: playbook-mealie.yaml
+- import_playbook: playbook-postgres.yaml
     

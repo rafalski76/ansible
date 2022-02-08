@@ -1,0 +1,18 @@
+---
+- hosts: host2
+  become: yes
+  become_user: root 
+  gather_facts: no
+  
+  tasks:
+    - name: Copy docker-compose file
+      copy:
+        src: docker-compose-postgres.yaml
+        dest: /vagrant/projekt/docker-compose-postgres.yaml
+
+    - name: Install Postgres
+      docker_compose:
+        project_src: /vagrant/projekt/
+        files:
+          - docker-compose-postgres.yaml
+        state: present
