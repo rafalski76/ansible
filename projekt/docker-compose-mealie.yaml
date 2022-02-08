@@ -1,37 +1,16 @@
-version: "3.3"
+version: "3.4"
 
 services:
   mealie:
+    image: hkotel/mealie
     container_name: mealie
-    image: hkotel/mealie:latest
     restart: always
     ports:
       - 9090:80
     environment:
-      PUID: 1000
-      PGID: 1000
-      TZ: America/Anchorage
-
-      # Database Settings
       DB_ENGINE: postgres # Optional: 'sqlite', 'postgres'
       POSTGRES_USER: mealie
-      POSTGRES_PASSWORD: mealie
+      POSTGRES_PASSWORD: "{{ postgres_password }}"
       POSTGRES_SERVER: 192.168.56.12
       POSTGRES_PORT: 5432
       POSTGRES_DB: mealie
-
-      # Default Recipe Settings
-      RECIPE_PUBLIC: 'true'
-      RECIPE_SHOW_NUTRITION: 'true'
-      RECIPE_SHOW_ASSETS: 'true'
-      RECIPE_LANDSCAPE_VIEW: 'true'
-      RECIPE_DISABLE_COMMENTS: 'false'
-      RECIPE_DISABLE_AMOUNT: 'false'
-
-      # Gunicorn
-      # WEB_CONCURRENCY: 2
-      # WORKERS_PER_CORE: 0.5
-      # MAX_WORKERS: 8
-    volumes:
-      - ./mealie/data/:/app/data
-
