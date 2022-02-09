@@ -10,5 +10,7 @@
 
 # Others directory
 mealie
+postgres-data
+sql
 roles/geerlingguy.*
 

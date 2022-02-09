@@ -3,4 +3,7 @@ common_packages:
   - python3
   - python3-pip
   - docker-compose
+  
+include_vars: secret.yml   
+postgres_password: postgres_password
 
