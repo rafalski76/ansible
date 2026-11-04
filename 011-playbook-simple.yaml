@@ -1,7 +1,8 @@
 ---
-- hosts: web_servers
+- name: Ping web servers
+  hosts: web_servers
   become: true
 
   tasks:
     - name: Simple call ping
-      ping:
+      ansible.builtin.ping:

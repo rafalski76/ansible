@@ -1,5 +1,6 @@
 ---
-- hosts: target1
+- name: Conditionals demo
+  hosts: target1
   become: false
 
   tasks:

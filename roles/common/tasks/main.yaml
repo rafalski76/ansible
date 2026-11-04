@@ -1,6 +1,8 @@
 ---
-- include_tasks: packages-yum.yaml
+- name: Install packages (RedHat family)
+  ansible.builtin.include_tasks: packages-yum.yaml
   when: ansible_os_family == "RedHat"
 
-- include_tasks: packages-apt.yaml
+- name: Install packages (Debian family)
+  ansible.builtin.include_tasks: packages-apt.yaml
   when: ansible_os_family == "Debian"

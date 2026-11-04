@@ -1,5 +1,6 @@
 ---
-- hosts: web_servers
+- name: Configure web servers
+  hosts: web_servers
   become: true
 
   roles:

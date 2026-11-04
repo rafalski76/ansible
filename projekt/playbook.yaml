@@ -1,6 +1,9 @@
 ---
-- import_playbook: playbook-all.yaml
-- import_playbook: playbook-postgres.yaml
-- import_playbook: playbook-mealie.yaml
+- name: Common setup (Docker, git)
+  ansible.builtin.import_playbook: playbook-all.yaml
 
-    
+- name: PostgreSQL
+  ansible.builtin.import_playbook: playbook-postgres.yaml
+
+- name: Mealie
+  ansible.builtin.import_playbook: playbook-mealie.yaml

@@ -1,17 +1,18 @@
 ---
-- hosts: host2
-  become: yes
-  become_user: root 
-  gather_facts: no
-  
+- name: Deploy PostgreSQL
+  hosts: host2
+  become: true
+  become_user: root
+  gather_facts: false
+
   tasks:
     - name: Copy docker-compose file
-      copy:
+      ansible.builtin.template:
         src: docker-compose-postgres.yaml
         dest: /vagrant/projekt/docker-compose-postgres.yaml
 
     - name: Install Postgres
-      docker_compose:
+      community.docker.docker_compose_v2:
         project_src: /vagrant/projekt/
         files:
           - docker-compose-postgres.yaml

@@ -1,42 +1,42 @@
 ---
 
 - name: Prepare common directories
-  file:
+  ansible.builtin.file:
     path: "{{ item }}"
     state: directory
     owner: "{{ ansible_user }}"
     group: "{{ ansible_user }}"
-    mode: 0755
-  with_items:
+    mode: "0755"
+  loop:
     - "/home/{{ ansible_user }}/app"
     - "/home/{{ ansible_user }}/app/log"
     - "/home/{{ ansible_user }}/conf"
 
 - name: Create /var/log/app directory
-  file:
+  ansible.builtin.file:
     path: "/var/log/app"
     state: directory
     owner: "{{ ansible_user }}"
     group: "{{ ansible_user }}"
-    mode: 0755
+    mode: "0755"
   register: app_dir
 
 - name: Print app_dir
-  debug:
+  ansible.builtin.debug:
     var: app_dir
 
 - name: Check whether /var/log/app exists
-  stat:
+  ansible.builtin.stat:
     path: /var/log/app
   register: app_dir_check
 
 - name: Create /var/log/app/app.conf
-  template:
+  ansible.builtin.template:
     src: hello-world.j2
     dest: /var/log/app/app.conf
     owner: root
     group: root
-    mode: 0644
+    mode: "0644"
   when:
     - app_dir_check.stat.exists == true
     - app_dir_check.stat.isdir == true
