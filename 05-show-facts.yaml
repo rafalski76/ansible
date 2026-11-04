@@ -1,7 +1,8 @@
 ---
-- hosts: target1
+- name: Show host facts
+  hosts: target1
   become: false
   tasks:
     - name: Show facts
-      debug:
+      ansible.builtin.debug:
         var: ansible_facts

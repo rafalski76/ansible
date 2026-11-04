@@ -1,17 +1,18 @@
 ---
 - name: Update apt cache
-  apt:
-    update_cache: yes
+  ansible.builtin.apt:
+    update_cache: true
     cache_valid_time: 3600
   tags:
     - update
 
-- name: Install {{ mysql_package_name }} package
-  apt:
+- name: Install MySQL package
+  ansible.builtin.apt:
     name: "{{ mysql_package_name }}"
     state: latest
   tags:
     - bootstrap
 
-- import_tasks: nginx.yaml
-#- import_tasks: db.yaml
+- name: Configure nginx
+  ansible.builtin.import_tasks: nginx.yaml
+# - ansible.builtin.import_tasks: db.yaml

@@ -1,6 +1,6 @@
 ---
 - name: Install pip packages
-  pip:
+  ansible.builtin.pip:
     name: PyMySQL
     state: present
 

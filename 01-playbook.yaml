@@ -1,13 +1,11 @@
 ---
-- hosts: web_servers
+- name: Install nginx
+  hosts: web_servers
   become: true
 
   tasks:
     - name: Install nginx
-      apt:
+      ansible.builtin.apt:
         name: nginx
         state: present
         update_cache: true
-
-
-

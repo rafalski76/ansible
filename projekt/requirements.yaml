@@ -1,3 +1,6 @@
 ---
-- src: geerlingguy.git
-- src: geerlingguy.docker
+roles:
+  - name: geerlingguy.git
+  - name: geerlingguy.docker
+collections:
+  - name: community.docker

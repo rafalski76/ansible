@@ -1,12 +1,13 @@
 ---
-- hosts: target1
+- name: Create users in a loop
+  hosts: target1
   become: true
   tasks:
     - name: Add several users
-      user:
+      ansible.builtin.user:
         name: "{{ item }}"
         state: present
         create_home: true
-      with_items:
+      loop:
         - alice
         - bob

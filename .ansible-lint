@@ -1,0 +1,14 @@
+---
+profile: moderate
+exclude_paths:
+  - .github/
+  - roles/geerlingguy.*
+  - projekt/roles/geerlingguy.*
+  - projekt/secret.yaml  # zaszyfrowany Ansible Vault
+# Repozytorium ma charakter szkoleniowy – wyłączone reguły czysto stylistyczne
+skip_list:
+  - var-naming[no-role-prefix]
+  - package-latest
+  - no-changed-when
+  - risky-file-permissions
+  - literal-compare

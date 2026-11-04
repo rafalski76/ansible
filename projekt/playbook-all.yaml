@@ -1,11 +1,11 @@
 ---
-- hosts: all
-  become: yes
+- name: Common setup on all hosts
+  hosts: all
+  become: true
   become_user: root
-  gather_facts: no
+  gather_facts: false
 
   roles:
     - common
     - geerlingguy.git
     - geerlingguy.docker
-    

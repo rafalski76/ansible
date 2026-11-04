@@ -1,16 +1,14 @@
-version: "3.4"
-
 services:
   mealie:
-    image: hkotel/mealie
+    image: ghcr.io/mealie-recipes/mealie:v3.30.0
     container_name: mealie
     restart: always
     ports:
-      - 9090:80
+      - 9090:9000
     environment:
       DB_ENGINE: postgres
       POSTGRES_USER: mealie
-      POSTGRES_PASSWORD: mealie
+      POSTGRES_PASSWORD: "{{ postgres_password }}"
       POSTGRES_SERVER: 192.168.56.12
       POSTGRES_PORT: 5432
       POSTGRES_DB: mealie
